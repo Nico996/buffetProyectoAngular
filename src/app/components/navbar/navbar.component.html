@@ -1,0 +1,27 @@
+<mat-toolbar class="navbar">
+  <a routerLink="/">
+    <button mat-icon-button class="example-icon" aria-label="home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+  </a>
+  <span>¿Qué Comemos?</span>
+
+  <span class="example-spacer"></span>
+
+  <a routerLink="/">
+    <button *ngIf="!isLoggedIn" mat-icon-button class="example-icon" aria-label="login icon">
+      <mat-icon>login</mat-icon>
+    </button>
+  </a>
+
+  <button *ngIf="!isLoggedIn" mat-icon-button class="example-icon" aria-label="register icon">
+    <mat-icon>app_registration</mat-icon>
+  </button>
+
+  <button *ngIf="isLoggedIn && userType === 'user'" mat-button>Mi Menú</button>
+  <button *ngIf="isLoggedIn && userType === 'admin'" mat-button>Crear Menú</button>
+
+  <button *ngIf="isLoggedIn" (click)="logout()" mat-icon-button class="example-icon" aria-label="logout icon">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

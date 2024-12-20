@@ -1,0 +1,74 @@
+<div class="container">
+  <h2>Crear/Editar Menú</h2>
+  <h4>Debe elegir obligatoriamente un tipo de menu, un plato principal y un dia para el menu</h4>
+  <form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+    <table>
+      <tr>
+        <th>Operaciones</th>
+        <th>Tipo de Menu</th>
+        <th>Entrada</th>
+        <th>Plato Principal</th>
+        <th>Postre</th>
+        <th>Bebida</th>
+        <th>Día</th>
+      </tr>
+
+      <tr>
+        <td>
+          <button type="submit" [disabled]="!menuForm.valid">Guardar</button>
+        </td>
+        <td>
+          <select formControlName="tipo">
+            <option [value]="null">Ninguno</option>
+            <option>Vegano</option>
+            <option>No Vegano</option>
+          </select>
+        </td>
+        <td>
+          <select formControlName="entrada" (change)="actualizarComidasSeleccionadas(); actualizarTotal()">
+            <option [value]="null">Ninguna</option> <!-- Opción para "null" -->
+            <option *ngFor="let comida of listadoComida" [value]="comida.id">
+              {{ comida.nombre }} ({{ comida.precio | currency }})
+            </option>
+          </select>
+        </td>
+        <td>
+          <select formControlName="platoPrincipal" (change)="actualizarComidasSeleccionadas(); actualizarTotal()">
+            
+            <option *ngFor="let comida of listadoComida" [value]="comida.id">
+              {{ comida.nombre }} ({{ comida.precio | currency }})
+            </option>
+          </select>
+        </td>
+        <td>
+          <select formControlName="postre" (change)="actualizarComidasSeleccionadas(); actualizarTotal()"  placeholder="ingrese una opcion">
+            <option [value]="null">Ninguno</option>
+            <option *ngFor="let comida of listadoComida" [value]="comida.id">
+              {{ comida.nombre }} ({{ comida.precio | currency }})
+            </option>
+          </select>
+        </td>
+        <td>
+          <select formControlName="bebida" (change)="actualizarComidasSeleccionadas(); actualizarTotal()">
+            <option [value]="null">Ninguna</option>
+            <option *ngFor="let comida of listadoComida" [value]="comida.id">
+              {{ comida.nombre }} ({{ comida.precio | currency }})
+            </option>
+          </select>
+        </td>
+        <td>
+          <select formControlName="dia">
+            
+            <option *ngFor="let dia of diasSemana" [value]="dia">
+              {{ dia }}
+            </option>
+          </select>
+        </td>
+      </tr>
+    </table>
+
+    <div class="total">
+      <strong>Precio Total: {{ totalPrecio | currency }}</strong>
+    </div>
+  </form>
+</div>

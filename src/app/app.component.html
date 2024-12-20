@@ -1,0 +1,18 @@
+<!--  <app-login></app-login> Componente de inicio de sesión -->
+<!-- <app-register></app-register> Componente de registro -->
+<!-- <app-comida></app-comida>  Componente creador de comidas-->
+<!--<app-register></app-register>
+  <app-login></app-login> -->
+<app-navbar [isLoggedIn]="isLoggedIn" [userType]="userType"></app-navbar>
+
+<div class="flex-wrapper">
+  <div class="container">
+    <app-home></app-home>
+  </div>
+
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>
+
+<router-outlet /> <!-- Aquí se cargarán las rutas -->
