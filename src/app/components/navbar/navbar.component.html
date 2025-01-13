@@ -1,9 +1,8 @@
 <mat-toolbar class="navbar">
-  <a routerLink="/home">
-    <button mat-icon-button class="example-icon" aria-label="home icon">
-      <mat-icon>home</mat-icon>
-    </button>
-  </a>
+  <button [routerLink]="['/Home']" mat-icon-button class="example-icon" aria-label="home icon">
+    <mat-icon>home</mat-icon>
+  </button>
+
   <span>¿Qué Comemos?</span>
   <span class="example-spacer"></span>
 
@@ -19,16 +18,12 @@
     </button>
   }
   @else {
-    <a routerLink="/home">
-      <button mat-icon-button class="example-icon" aria-label="login icon">
-        <mat-icon>login</mat-icon>
-      </button>
-    </a>
+    <button [routerLink]="['/Login']" mat-icon-button class="example-icon" aria-label="login icon">
+      <mat-icon>login</mat-icon>
+    </button>
 
-    <a routerLink="/register">
-      <button mat-icon-button class="example-icon" aria-label="register icon">
-        <mat-icon>app_registration</mat-icon>
-      </button>
-    </a>
+    <button [routerLink]="['/Register']" mat-icon-button class="example-icon" aria-label="register icon">
+      <mat-icon>app_registration</mat-icon>
+    </button>
   }
 </mat-toolbar>

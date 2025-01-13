@@ -31,6 +31,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'buffetProyectoAngular';
-  isLoggedIn = true; // Cambia esto dependiendo del estado de sesión
+  isLoggedIn = false; // Cambia esto dependiendo del estado de sesión
   userType: 'admin' | 'user' = 'user'; // Cambia esto dependiendo del tipo de usuario
 }
